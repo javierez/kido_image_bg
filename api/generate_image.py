@@ -1,7 +1,7 @@
 import os
 import requests
 
-def generate_image_for_story(story_id, description):
+def generate_image_for_story(story_id, description, color):
     """
     Generate image for a specific story
     
@@ -12,7 +12,7 @@ def generate_image_for_story(story_id, description):
     API_KEY = os.environ.get("BFL_API_KEY", "e96c04dc-dfce-4025-9494-225ea940ed92")
     
     # Create prompt from description
-    prompt = f"Pixar styled background that represents the athmosphere of the following story. Colors should be deep green-ish. {description}"
+    prompt = f"Pixar styled background that represents the athmosphere of the following story. Colors should be deep {color}-ish. {description}"
     
     try:
         request = requests.post(
@@ -24,7 +24,7 @@ def generate_image_for_story(story_id, description):
             },
             json={
                 'prompt': prompt,
-                'width': 1024/2,
+                'width': 1024,
                 'height': 1024,
             },
         ).json()

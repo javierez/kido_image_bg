@@ -29,7 +29,8 @@ def get_stories():
             "story_id",
             "name",
             "description",
-            "story_image_url"
+            "story_image_url",
+            "color"
         ).execute()
         
         if hasattr(response, 'error') and response.error is not None:

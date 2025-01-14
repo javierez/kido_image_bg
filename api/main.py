@@ -23,7 +23,7 @@ def process_story(story, s3_handler):
         return story['story_image_url']
     
     # Generate image
-    request_id = generate_image_for_story(story['story_id'], story['description'])
+    request_id = generate_image_for_story(story['story_id'], story['description'], story['color'])
     print(f"Generation started for story {story['story_id']} with request ID: {request_id}")
     
     # Wait for and retrieve the result
