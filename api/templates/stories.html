@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Story Viewer</title>
+    <style>
+        .story-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .story-title {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .story-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .story-card {
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="story-container">
+        {% for story in stories %}
+        <div class="story-card">
+            <h2 class="story-title">{{ story.name }}</h2>
+            {% if story.story_image_url %}
+            <img class="story-image" src="{{ story.story_image_url }}" alt="{{ story.name }}">
+            {% else %}
+            <p>No image available</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html> 
