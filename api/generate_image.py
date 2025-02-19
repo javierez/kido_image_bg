@@ -13,7 +13,7 @@ def generate_image_for_story(story_id, description, color):
     
     # Create prompt from description
     prompt = f"Pixar styled background that represents the athmosphere of the following story. Colors should be deep {color}-ish. {description}"
-    
+    # prompt = f"Pixar styled image that represents the following story. Colors should be deep {color}-ish. They should be in a deep forest. El equipo de aventureros se encuentra frente a un río mágico que bloquea su camino. El río está lleno de números flotantes que forman un acertijo. Para cruzarlo, los aventureros deben encontrar los números correctos que desbloquearán un puente mágico. Cada miembro del equipo tiene un papel especial para ayudar a resolver el acertijo y avanzar más cerca del Árbol de Cristal."
     try:
         request = requests.post(
             'https://api.bfl.ml/v1/flux-pro-1.1',
