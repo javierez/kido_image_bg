@@ -5,6 +5,9 @@ from image_storage import S3Handler
 from supabase_connector import update_story_image_url
 import uvicorn
 from web_viewer import app
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from api.routes import router as api_router
 
 def process_story(story, s3_handler):
     """
@@ -71,3 +74,17 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+app = FastAPI()
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # In production, replace with your frontend URL
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Include the router
+app.include_router(api_router, prefix="/api")

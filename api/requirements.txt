@@ -1,10 +1,11 @@
-fastapi==0.109.2
-uvicorn==0.27.1
+fastapi>=0.68.0
+uvicorn>=0.15.0
+pydantic>=1.8.0
+requests>=2.26.0
 torch==2.2.0
 diffusers==0.25.0
 Pillow==10.2.0
-python-multipart==0.0.7 
-requests==2.31.0
+python-multipart==0.0.7
 boto3>=1.34.0
 botocore>=1.34.0
 python-dotenv==1.0.0
